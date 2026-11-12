@@ -3,714 +3,904 @@
 <html lang="en-GB">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Academic and engineering portfolio of Ashish Pastay, a mechanical engineer interested in fluid mechanics, aerodynamics, turbulence and computational fluid dynamics.">
-
-    <meta name="author" content="Ashish Pastay">
-    <meta name="theme-color" content="#f7f8fa">
-
-    <title>Ashish Pastay | Mechanical Engineer & Researcher</title>
-
-    <style>
-
-        :root {
-            --ink: #182536;
-            --body: #3e4b5b;
-            --muted: #718096;
-            --accent: #245b83;
-            --accent-dark: #183f5d;
-            --accent-soft: #eaf1f6;
-            --line: #e2e8ee;
-            --paper: #ffffff;
-            --background: #f7f8fa;
-            --max-width: 1120px;
-            --shadow: 0 12px 32px rgba(25, 45, 66, 0.055);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 90px;
-        }
-
-        body {
-            margin: 0;
-            background: var(--background);
-            color: var(--body);
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 16px;
-            line-height: 1.75;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: var(--accent-dark);
-            text-decoration: underline;
-        }
-
-        a:focus-visible {
-            outline: 3px solid #8bb7d5;
-            outline-offset: 3px;
-        }
-
-        .sans, nav, .eyebrow, .subtitle, .meta, .tag,
-        .button, footer, .contact-links {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .container {
-            width: min(90%, var(--max-width));
-            margin: 0 auto;
-        }
-
-        /* Navigation */
-
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            background: rgba(255, 255, 255, 0.96);
-            border-bottom: 1px solid var(--line);
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-wrap {
-            min-height: 72px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-        }
-
-        .brand {
-            color: var(--ink);
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 17px;
-            font-weight: 700;
-            letter-spacing: -0.3px;
-            white-space: nowrap;
-        }
-
-        .brand:hover {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            gap: 7px 22px;
-        }
-
-        nav a {
-            color: #536173;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        /* Hero section */
-
-        .hero {
-            padding: 86px 0 72px;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) 245px;
-            gap: 64px;
-            align-items: center;
-        }
-
-        .eyebrow {
-            color: var(--accent);
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
-            margin: 0 0 15px;
-        }
-
-        h1, h2, h3, h4 {
-            color: var(--ink);
-        }
-
-        h1 {
-            margin: 0;
-            font-size: clamp(43px, 6vw, 65px);
-            font-weight: 400;
-            letter-spacing: -2px;
-            line-height: 1.08;
-        }
-
-        .subtitle {
-            color: var(--accent);
-            font-size: 17px;
-            font-weight: 600;
-            line-height: 1.55;
-            margin: 17px 0 22px;
-        }
-
-        .hero-copy {
-            max-width: 760px;
-            color: #4d5a69;
-            font-size: 17px;
-        }
-
-        .hero-copy p {
-            margin: 0 0 15px;
-        }
-
-        .hero-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 11px;
-            margin-top: 28px;
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 42px;
-            padding: 9px 16px;
-            border: 1px solid #cbd7e1;
-            border-radius: 5px;
-            color: var(--accent-dark);
-            background: white;
-            font-size: 13px;
-            font-weight: 700;
-            transition: background 0.18s ease, border-color 0.18s ease;
-        }
-
-        .button:hover {
-            background: var(--accent-soft);
-            border-color: #a9bfd0;
-            text-decoration: none;
-        }
-
-        .button.primary {
-            background: var(--accent-dark);
-            border-color: var(--accent-dark);
-            color: white;
-        }
-
-        .button.primary:hover {
-            background: #245b83;
-        }
-
-        .profile-mark {
-            width: 220px;
-            height: 220px;
-            margin: 0 auto;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            background: linear-gradient(145deg, #e8eff4, #d5e1e9);
-            border: 1px solid #d4e0e8;
-            color: var(--accent-dark);
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 67px;
-            letter-spacing: -4px;
-        }
-
-        .profile-note {
-            margin-top: 18px;
-            text-align: center;
-            color: var(--muted);
-            font: 12px/1.6 Arial, Helvetica, sans-serif;
-        }
-
-        /* General sections */
-
-        .section {
-            padding: 58px 0;
-            border-top: 1px solid var(--line);
-        }
-
-        .section-heading {
-            margin-bottom: 27px;
-        }
-
-        .section-heading .eyebrow {
-            margin-bottom: 5px;
-        }
-
-        h2 {
-            margin: 0;
-            font-size: 32px;
-            font-weight: 400;
-            letter-spacing: -0.7px;
-            line-height: 1.25;
-        }
-
-        h3 {
-            margin: 0 0 7px;
-            font-size: 21px;
-            font-weight: 600;
-            line-height: 1.4;
-        }
-
-        h4 {
-            margin: 22px 0 8px;
-            font: 700 14px/1.4 Arial, Helvetica, sans-serif;
-        }
-
-        p {
-            margin-top: 0;
-        }
-
-        .about-text {
-            max-width: 930px;
-            font-size: 16px;
-        }
-
-        .about-text p {
-            margin-bottom: 16px;
-        }
-
-        /* Cards */
-
-        .card {
-            background: var(--paper);
-            border: 1px solid var(--line);
-            border-radius: 7px;
-            padding: 25px 27px;
-            margin-bottom: 17px;
-            box-shadow: var(--shadow);
-        }
-
-        .card:last-child {
-            margin-bottom: 0;
-        }
-
-        .meta {
-            margin: 0 0 14px;
-            color: var(--muted);
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.25px;
-        }
-
-        .card p:last-child {
-            margin-bottom: 0;
-        }
-
-        .card ul {
-            margin: 12px 0 14px;
-            padding-left: 22px;
-        }
-
-        .card li {
-            padding-left: 3px;
-            margin: 6px 0;
-        }
-
-        /* Tags */
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px;
-            margin-top: 15px;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 4px;
-            background: var(--accent-soft);
-            color: #315875;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.15px;
-        }
-
-        /* Publications */
-
-        .publication-title {
-            font-size: 21px;
-        }
-
-        .publication-status {
-            display: inline-block;
-            margin: 2px 0 12px;
-            color: #315875;
-            background: #edf3f7;
-            border: 1px solid #dce7ee;
-            border-radius: 4px;
-            padding: 4px 9px;
-            font: 700 11px Arial, Helvetica, sans-serif;
-        }
-
-        .publication-link {
-            font: 700 13px Arial, Helvetica, sans-serif;
-        }
-
-        /* Education and skills */
-
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 17px;
-        }
-
-        .two-column .card {
-            height: 100%;
-        }
-
-        .education-place {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        /* Contact */
-
-        .contact-panel {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 22px;
-            background: white;
-            border: 1px solid var(--line);
-            border-radius: 7px;
-            padding: 25px 27px;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-panel p {
-            margin: 5px 0 0;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        footer {
-            padding: 27px 0 35px;
-            color: #8a95a1;
-            text-align: center;
-            font-size: 12px;
-        }
-
-        /* Responsive layout */
-
-        @media (max-width: 780px) {
-
-            .nav-wrap {
-                align-items: flex-start;
-                flex-direction: column;
-                justify-content: center;
-                padding: 15px 0;
-                gap: 10px;
-            }
-
-            nav {
-                justify-content: flex-start;
-                gap: 8px 17px;
-            }
-
-            .hero {
-                padding: 60px 0 52px;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .profile-aside {
-                grid-row: 1;
-            }
-
-            .profile-mark {
-                width: 145px;
-                height: 145px;
-                font-size: 48px;
-            }
-
-            .profile-note {
-                margin-top: 10px;
-            }
-
-            .two-column {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-        }
-
-        @media (max-width: 520px) {
-
-            .container {
-                width: 90%;
-            }
-
-            h1 {
-                font-size: 43px;
-            }
-
-            h2 {
-                font-size: 28px;
-            }
-
-            .hero-copy {
-                font-size: 16px;
-            }
-
-            .section {
-                padding: 43px 0;
-            }
-
-            .card {
-                padding: 20px;
-            }
-
-            .contact-panel {
-                padding: 21px;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="author" content="Ashish Pastay">
+<meta name="description" content="Academic and research portfolio of Ashish Pastay, Mechanical Engineer interested in Fluid Mechanics, Aerodynamics, Turbulence and Computational Fluid Dynamics.">
+
+<meta name="theme-color" content="#f7f9fb">
+
+<title>Ashish Pastay | Academic Portfolio</title>
+
+<style>
+
+/* =========================================
+   1. GENERAL DESIGN
+========================================= */
+
+:root {
+    --navy: #20364d;
+    --blue: #326b91;
+    --blue-light: #eaf2f7;
+    --text: #394858;
+    --muted: #778493;
+    --background: #f7f9fb;
+    --white: #ffffff;
+    --border: #e2e8ee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.75;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    font: inherit;
+}
+
+/* =========================================
+   2. HEADER AND MAIN NAVIGATION
+========================================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.97);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+}
+
+.header-container {
+    max-width: 1200px;
+    width: 92%;
+    margin: auto;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 75px;
+    gap: 20px;
+}
+
+.brand {
+    color: var(--navy);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+.brand:hover {
+    text-decoration: none;
+}
+
+.main-navigation {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.main-navigation::-webkit-scrollbar {
+    display: none;
+}
+
+.main-tab {
+    border: none;
+    background: transparent;
+    color: #596979;
+    padding: 10px 11px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.main-tab:hover {
+    background: var(--blue-light);
+    color: var(--blue);
+}
+
+.main-tab.active {
+    color: var(--blue);
+    background: var(--blue-light);
+}
+
+/* =========================================
+   3. MAIN CONTENT
+========================================= */
+
+main {
+    max-width: 1050px;
+    width: 90%;
+    min-height: 72vh;
+    margin: 0 auto;
+}
+
+.tab-panel {
+    padding-top: 48px;
+    padding-bottom: 65px;
+    animation: appear 0.25s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   4. SECTION HEADINGS
+========================================= */
+
+.eyebrow {
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+h1, h2, h3, h4 {
+    color: var(--navy);
+}
+
+h1 {
+    font-size: clamp(40px, 6vw, 60px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -2px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 31px;
+    font-weight: 400;
+    margin: 0 0 23px;
+    letter-spacing: -0.6px;
+}
+
+h3 {
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 0 0 8px;
+}
+
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+p {
+    margin-top: 0;
+}
+
+.subtitle {
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 15px 0 22px;
+}
+
+.section-intro {
+    max-width: 850px;
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+/* =========================================
+   5. SUB NAVIGATION
+========================================= */
+
+.sub-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+}
+
+.sub-tab {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    padding: 8px 13px;
+    color: #657586;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.sub-tab:hover {
+    background: var(--blue-light);
+    color: var(--blue);
+}
+
+.sub-tab.active {
+    color: var(--blue);
+    background: var(--blue-light);
+    border-color: #d7e5ef;
+}
+
+.sub-panel {
+    animation: appear 0.2s ease;
+}
+
+/* =========================================
+   6. HOME / ABOUT
+========================================= */
+
+.home-layout {
+    display: grid;
+    grid-template-columns: 1fr 225px;
+    align-items: center;
+    gap: 55px;
+    margin-bottom: 45px;
+}
+
+.hero-description {
+    max-width: 760px;
+    font-size: 16px;
+    color: #4d5b68;
+}
+
+.hero-description p {
+    margin-bottom: 17px;
+}
+
+.profile-column {
+    text-align: center;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: auto;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid #d1dce4;
+}
+
+.profile-caption {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 13px;
+}
+
+.quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 27px;
+}
+
+.action-link {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid #cedae4;
+    border-radius: 4px;
+    background: var(--white);
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.action-link:hover {
+    background: var(--blue-light);
+    text-decoration: none;
+}
+
+.action-link.primary {
+    color: white;
+    background: var(--navy);
+    border-color: var(--navy);
+}
+
+/* =========================================
+   7. CONTENT CARDS
+========================================= */
+
+.card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 25px 27px;
+    margin-bottom: 17px;
+    box-shadow: 0 6px 22px rgba(30,50,70,0.035);
+}
+
+.card:last-child {
+    margin-bottom: 0;
+}
+
+.card p:last-child {
+    margin-bottom: 0;
+}
+
+.meta {
+    color: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+
+.card ul {
+    padding-left: 22px;
+}
+
+.card li {
+    padding-left: 3px;
+    margin-bottom: 8px;
+}
+
+.card h4 {
+    margin-top: 22px;
+}
+
+/* =========================================
+   8. TAGS
+========================================= */
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 15px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 3px;
+    background: var(--blue-light);
+    color: #315b79;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* =========================================
+   9. PUBLICATIONS
+========================================= */
+
+.publication-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: #315b79;
+    background: var(--blue-light);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 4px 0 15px;
+}
+
+.publication-title {
+    font-size: 22px;
+    line-height: 1.45;
+}
+
+.publication-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* =========================================
+   10. EDUCATION AND SKILLS
+========================================= */
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px;
+}
+
+.education-place {
+    color: var(--blue);
+    font-weight: 600;
+}
+
+/* =========================================
+   11. AWARDS AND ACHIEVEMENTS
+========================================= */
+
+.award-card {
+    position: relative;
+    padding-left: 31px;
+    border-left: 3px solid #7c9eb8;
+}
+
+.award-category {
+    display: inline-block;
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+}
+
+.award-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.award-description {
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.award-year {
+    color: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* =========================================
+   12. CONTACT
+========================================= */
+
+.contact-box {
+    background: white;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* =========================================
+   13. FOOTER
+========================================= */
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 25px 15px;
+    text-align: center;
+    color: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+/* =========================================
+   14. RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 850px) {
+
+    .header-top {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding: 13px 0;
+        gap: 9px;
+    }
+
+    .main-navigation {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .home-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .profile-column {
+        grid-row: 1;
+    }
+
+    .profile-picture {
+        width: 145px;
+        height: 145px;
+        font-size: 45px;
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    main {
+        width: 91%;
+    }
+
+    .tab-panel {
+        padding-top: 34px;
+    }
+
+    h1 {
+        font-size: 43px;
+    }
+
+    h2 {
+        font-size: 27px;
+    }
+
+    .card {
+        padding: 19px;
+    }
+
+    .sub-navigation {
+        gap: 5px;
+    }
+
+    .sub-tab {
+        padding: 7px 10px;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
-<!-- Navigation -->
 
-<header class="site-header">
-    <div class="container nav-wrap">
+<!-- =========================================
+     HEADER
+========================================= -->
 
-        <a class="brand" href="#top">Ashish Pastay</a>
+<header>
 
-        <nav aria-label="Main navigation">
-            <a href="#about">About</a>
-            <a href="#research">Research</a>
-            <a href="#publications">Publications</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#leadership">Leadership</a>
-            <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
-        </nav>
+    <div class="header-container">
+
+        <div class="header-top">
+
+            <a class="brand" href="#about" data-brand>
+                Ashish Pastay
+            </a>
+
+            <nav class="main-navigation"
+                 role="tablist"
+                 aria-label="Main website navigation">
+
+                <button class="main-tab active"
+                        role="tab"
+                        aria-selected="true"
+                        data-tab="about">
+                    About
+                </button>
+
+                <button class="main-tab"
+                        role="tab"
+                        aria-selected="false"
+                        data-tab="research">
+                    Research
+                </button>
+
+                <button class="main-tab"
+                        role="tab"
+                        aria-selected="false"
+                        data-tab="publications">
+                    Publications
+                </button>
+
+                <button class="main-tab"
+                        role="tab"
+                        aria-selected="false"
+                        data-tab="awards">
+                    Awards
+                </button>
+
+                <button class="main-tab"
+                        role="tab"
+                        aria-selected="false"
+                        data-tab="experience">
+                    Experience
+                </button>
+
+                <button class="main-tab"
+                        role="tab"
+                        aria-selected="false"
+                        data-tab="projects">
+                    Projects
+                </button>
+
+                <button class="main-tab"
+                        role="tab"
+                        aria-selected="false"
+                        data-tab="leadership">
+                    Leadership
+                </button>
+
+                <button class="main-tab"
+                        role="tab"
+                        aria-selected="false"
+                        data-tab="education">
+                    Education
+                </button>
+
+                <button class="main-tab"
+                        role="tab"
+                        aria-selected="false"
+                        data-tab="skills">
+                    Skills
+                </button>
+
+                <button class="main-tab"
+                        role="tab"
+                        aria-selected="false"
+                        data-tab="contact">
+                    Contact
+                </button>
+
+            </nav>
+
+        </div>
 
     </div>
+
 </header>
 
 
-<main id="top">
+<main>
 
-    <!-- Hero -->
 
-    <section class="hero">
+<!-- =========================================
+     ABOUT TAB
+========================================= -->
 
-        <div class="container hero-grid">
+<section class="tab-panel"
+         id="panel-about"
+         data-panel="about">
 
-            <div>
+    <div class="home-layout">
 
-                <p class="eyebrow">
-                    Mechanical Engineering · Research · Computational Science
+        <div>
+
+            <p class="eyebrow">
+                Mechanical Engineering · Research · Numerical Simulations
+            </p>
+
+            <h1>Ashish Pastay</h1>
+
+            <p class="subtitle">
+                Mechanical Engineer | Fluid Mechanics | Aerodynamics | CFD
+            </p>
+
+            <div class="hero-description">
+
+                <p>
+                    I am a Mechanical Engineering graduate from the
+                    National Institute of Technology Karnataka (NITK),
+                    Surathkal, with research experience at the Indian
+                    Institute of Technology Madras (IIT Madras).
+                    My interests lie in fluid mechanics, aerodynamics,
+                    turbulence and computational fluid dynamics.
                 </p>
 
-                <h1>Ashish Pastay</h1>
-
-                <p class="subtitle">
-                    Mechanical Engineer | Fluid Mechanics | Aerodynamics | CFD
+                <p>
+                    My research experience spans computational and
+                    experimental investigations of rotor-induced flow
+                    fields around unmanned aerial vehicles, with
+                    applications to meteorological wind sensing.
+                    I have worked with Fortran-based free-vortex wake
+                    modelling, numerical post-processing and
+                    experimental validation.
                 </p>
 
-                <div class="hero-copy">
-
-                    <p>
-                        I am a mechanical engineer and researcher with an academic
-                        background from the National Institute of Technology Karnataka
-                        (NITK), Surathkal, and research experience at the Indian
-                        Institute of Technology Madras (IIT Madras). My interests lie
-                        in fluid mechanics, aerodynamics, turbulence and computational
-                        fluid dynamics, with a particular focus on understanding
-                        complex flow phenomena through numerical modelling and
-                        experimental investigation.
-                    </p>
-
-                    <p>
-                        My research experience has included the modelling and
-                        post-processing of rotor-induced flow fields around unmanned
-                        aerial vehicles, experimental validation of a single-rotor
-                        configuration, and the development of this work into a
-                        journal article. Alongside this, I have worked on
-                        thermal-fluid systems, structural analysis, vehicle
-                        engineering and data-driven approaches to engineering design.
-                    </p>
-
-                </div>
-
-                <div class="hero-links">
-
-                    <a class="button primary" href="#publications">
-                        View publication
-                    </a>
-
-                    <a class="button"
-                       href="https://www.linkedin.com/in/ashish-pastay-235a56224/"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        LinkedIn
-                    </a>
-
-                    <a class="button"
-                       href="https://github.com/ashishpastay18"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        GitHub
-                    </a>
-
-                    <a class="button" href="mailto:ashishpastay18@gmail.com">
-                        Email me
-                    </a>
-
-                </div>
+                <p>
+                    Alongside my research work, I have explored
+                    thermal-fluid systems, structural mechanics,
+                    vehicle engineering and data-driven approaches
+                    to engineering design through academic projects,
+                    IEEE NITK and NITKRacing.
+                </p>
 
             </div>
 
+            <div class="quick-links">
 
-            <aside class="profile-aside" aria-label="Profile monogram">
+                <a class="action-link primary"
+                   href="#publications"
+                   data-open-tab="publications">
+                    View publications
+                </a>
 
-                <div class="profile-mark">AP</div>
+                <a class="action-link"
+                   href="https://www.linkedin.com/in/ashish-pastay-235a56224/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    LinkedIn
+                </a>
 
-                <p class="profile-note">
-                    Fluid mechanics · Aerodynamics · Numerical and experimental methods
-                </p>
+                <a class="action-link"
+                   href="https://orcid.org/0009-0006-2530-3157"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    ORCID
+                </a>
 
-            </aside>
+                <a class="action-link"
+                   href="https://github.com/ashishpastay18"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    GitHub
+                </a>
 
-        </div>
-
-    </section>
-
-
-    <!-- About Me -->
-
-    <section class="section" id="about">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <p class="eyebrow">Profile</p>
-
-                <h2>About me</h2>
-
-            </div>
-
-
-            <div class="about-text">
-
-                <p>
-                    I am a Mechanical Engineering graduate from NITK Surathkal,
-                    where I completed my undergraduate degree with a CGPA of
-                    9.15/10. During my final year, I undertook an academic
-                    exchange in the Aerospace Engineering department at
-                    IIT Madras and carried out my final-year research project
-                    there. This experience helped shape my interest in fluid
-                    mechanics and aerodynamics, particularly in problems where
-                    computational analysis can be supported by carefully
-                    designed experiments.
-                </p>
-
-
-                <p>
-                    At the Geophysical Flows Laboratory (GFL), IIT Madras,
-                    I began as a research intern and subsequently worked as
-                    a Project Associate. My work centred on rotor-induced flow
-                    around unmanned aerial vehicles (UAVs), motivated by the
-                    challenges of making reliable atmospheric wind measurements
-                    from rotorcraft. I worked with a Fortran-based free-vortex
-                    wake model to study the induced velocity field of
-                    single-rotor and multi-rotor arrangements. I also developed
-                    post-processing workflows to examine and visualise the
-                    computed flow fields, compare configurations and identify
-                    regions with relatively low rotor-induced disturbance
-                    that may be suitable for wind-sensor placement.
-                </p>
-
-
-                <p>
-                    The computational work was complemented by experimental
-                    velocity measurements and validation of the model for a
-                    single-rotor configuration. The wider study considered
-                    different UAV layouts and flight conditions, including
-                    hover and descent scenarios. I then helped bring the
-                    modelling, validation and sensor-placement findings
-                    together as a research article, preparing the manuscript
-                    in LaTeX and taking it through the journal submission and
-                    revision process. The resulting article has been accepted
-                    for final publication in <em>Atmospheric Measurement
-                    Techniques</em> (AMT).
-                </p>
-
-
-                <p>
-                    My earlier experience at NITK broadened my exposure to
-                    heat transfer, thermal management, structural mechanics
-                    and vehicle design. Through undergraduate research,
-                    IEEE NITK activities and the NITKRacing team, I gained
-                    experience in CFD, finite-element analysis, CAD,
-                    MATLAB-based modelling and technical mentoring.
-                    I have also conducted introductory knowledge-exchange
-                    sessions on CAD, FEA, MATLAB and Simulink.
-                </p>
-
-
-                <p>
-                    I am particularly interested in research and engineering
-                    problems involving fluid mechanics, aerodynamics,
-                    turbulence, computational modelling and experimental
-                    validation. I enjoy combining physical understanding
-                    with numerical tools, and I am keen to continue developing
-                    rigorous approaches to analysing complex flow and
-                    engineering systems.
-                </p>
+                <a class="action-link"
+                   href="mailto:ashishpastay18@gmail.com">
+                    Email
+                </a>
 
             </div>
 
         </div>
 
-    </section>
 
+        <div class="profile-column">
 
-    <!-- Research Interests -->
-
-    <section class="section" id="research">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <p class="eyebrow">Areas of interest</p>
-
-                <h2>Research interests</h2>
-
+            <div class="profile-picture">
+                AP
             </div>
 
+            <p class="profile-caption">
+                Fluid Mechanics · Aerodynamics · Numerical Methods
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="sub-navigation" role="tablist">
+
+        <button class="sub-tab active"
+                role="tab"
+                aria-selected="true"
+                data-subtab="about-bio">
+            Biography
+        </button>
+
+        <button class="sub-tab"
+                role="tab"
+                aria-selected="false"
+                data-subtab="about-interests">
+            Research interests
+        </button>
+
+    </div>
+
+
+    <div class="sub-panel" data-subpanel="about-bio">
+
+        <div class="card">
+
+            <h3>Academic and research background</h3>
+
+            <p>
+                I completed my undergraduate degree in Mechanical
+                Engineering at NITK Surathkal with a CGPA of 9.15/10.
+                During my final year, I undertook an academic exchange
+                in the Aerospace Engineering department at IIT Madras,
+                where I carried out my final-year research project.
+                This experience developed my interest in fluid
+                mechanics and aerodynamics, particularly in combining
+                computational analysis with experimental investigation.
+            </p>
+
+            <p>
+                At the Geophysical Flows Laboratory, IIT Madras,
+                I began as a research intern and subsequently worked
+                as a Project Associate. My work focused on the
+                numerical investigation of rotor-induced flow fields around single- 
+                and multi-rotor UAVs. I worked with a Fortran-based free-vortex wake 
+                model and developed post-processing workflows to study flow fields
+                generated by single- and multi-rotor configurations.
+            </p>
+
+            <p>
+                I also contributed to experimental velocity
+                measurements and validation of the numerical model
+                for a single-rotor configuration. The wider study
+                considered different rotor arrangements and flight
+                conditions to identify low-disturbance regions
+                relevant to wind-sensor placement.
+            </p>
+
+            <p>
+                The findings were brought together into a research
+                article prepared using LaTeX and submitted to
+                Atmospheric Measurement Techniques (AMT), where
+                the manuscript has been accepted for final publication.
+            </p>
+
+            <p>
+                My undergraduate activities at NITK broadened my
+                experience in heat transfer, thermal management,
+                structural analysis and vehicle design. Through
+                IEEE NITK and NITKRacing, I also gained experience
+                in technical mentoring, engineering design and
+                collaborative project work.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="about-interests"
+         hidden>
+
+        <div class="card">
+
+            <h3>Research interests</h3>
+
+            <p>
+                My primary interests are in understanding fluid
+                flow phenomena through physical modelling,
+                numerical simulation and experimental investigation.
+            </p>
 
             <div class="tags">
 
@@ -722,725 +912,1492 @@
                 <span class="tag">Vortex Methods</span>
                 <span class="tag">UAV Flow Fields</span>
                 <span class="tag">Experimental Fluid Mechanics</span>
+                <span class="tag">Numerical Modelling</span>
                 <span class="tag">Heat Transfer</span>
                 <span class="tag">Thermal-Fluid Systems</span>
-                <span class="tag">Numerical Modelling</span>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- Publications -->
+<!-- =========================================
+     RESEARCH TAB
+========================================= -->
 
-    <section class="section" id="publications">
+<section class="tab-panel"
+         id="panel-research"
+         data-panel="research"
+         hidden>
 
-        <div class="container">
+    <p class="eyebrow">Research portfolio</p>
 
-            <div class="section-heading">
+    <h2>Research</h2>
 
-                <p class="eyebrow">Research output</p>
-
-                <h2>Publications</h2>
-
-            </div>
-
-
-            <article class="card">
-
-                <h3 class="publication-title">
-                    Aerodynamic evaluation of wind speed sensor placement
-                    on UAVs for meteorological applications
-                </h3>
-
-                <p class="meta">
-                    Ashish Pastay et al. · 2026
-                </p>
-
-                <span class="publication-status">
-                    Accepted for final publication
-                </span>
-
-                <p>
-                    <em>Atmospheric Measurement Techniques</em> (AMT),
-                    Copernicus Publications, on behalf of the European
-                    Geosciences Union (EGU).
-                </p>
-
-                <p>
-                    This study uses a free-vortex wake model to investigate
-                    rotor-induced velocity fields around single-rotor,
-                    quad-rotor and hexa-rotor UAV configurations under
-                    different flight conditions. The work examines the
-                    influence of rotor wakes on wind measurements and
-                    identifies aerodynamic quiet zones that can inform
-                    the placement of wind-speed sensors for meteorological
-                    applications. The numerical model is also assessed
-                    against single-rotor experimental measurements.
-                </p>
-
-                <p class="meta">
-                    Preprint hosted on EGUsphere ·
-                    Manuscript ID: egusphere-2026-977
-                </p>
-
-                <a class="publication-link"
-                   href="https://doi.org/10.5194/egusphere-2026-977"
-                   target="_blank"
-                   rel="noopener noreferrer">
-
-                    Read the preprint on EGUsphere →
-
-                </a>
-
-                <p class="meta" style="margin-top: 12px;">
-                    The link above is to the EGUsphere preprint.
-                    The final AMT article should be linked here once
-                    its journal version and DOI are available.
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
+    <p class="section-intro">
+        Numerical study in
+        fluid mechanics, rotor aerodynamics and thermal-fluid systems.
+    </p>
 
 
-    <!-- Research Experience -->
+    <div class="sub-navigation" role="tablist">
 
-    <section class="section" id="experience">
+        <button class="sub-tab active"
+                data-subtab="research-uav">
+            UAV aerodynamics
+        </button>
 
-        <div class="container">
+        <button class="sub-tab"
+                data-subtab="research-methods">
+            Computational methods
+        </button>
 
-            <div class="section-heading">
+        <button class="sub-tab"
+                data-subtab="research-thermal">
+            Thermal-fluid research
+        </button>
 
-                <p class="eyebrow">Research background</p>
-
-                <h2>Research experience</h2>
-
-            </div>
-
-
-            <!-- IIT Madras -->
-
-            <article class="card">
-
-                <h3>Geophysical Flows Laboratory (GFL)</h3>
-
-                <p class="meta">
-                    Indian Institute of Technology Madras ·
-                    Research Intern, subsequently Project Associate
-                </p>
-
-                <p>
-                    Worked on computational and experimental investigations
-                    of rotor-induced flow fields around UAVs, with an
-                    application to atmospheric wind sensing and sensor placement.
-                </p>
-
-                <ul>
-
-                    <li>
-                        <strong>Free-vortex wake modelling:</strong>
-                        Worked with a Fortran-based free-vortex wake model
-                        to study induced velocity fields generated by
-                        single-rotor and multi-rotor configurations.
-                    </li>
-
-                    <li>
-                        <strong>Computational post-processing:</strong>
-                        Developed and used post-processing workflows to
-                        analyse and visualise rotor-induced velocity
-                        distributions, compare rotor configurations and
-                        examine flow fields on planes around the aircraft.
-                    </li>
-
-                    <li>
-                        <strong>Experimental validation:</strong>
-                        Worked on experimental velocity measurements and
-                        validation of the numerical model for a single-rotor setup.
-                    </li>
-
-                    <li>
-                        <strong>Flight-condition assessment:</strong>
-                        Contributed to the assessment of rotor-induced flow
-                        under hover and descent conditions, and to identifying
-                        low-disturbance regions relevant to wind-sensor placement.
-                    </li>
-
-                    <li>
-                        <strong>Research communication:</strong>
-                        Consolidated the computational and experimental
-                        findings into a LaTeX manuscript and contributed
-                        to the journal submission and revision process.
-                        The resulting paper was accepted for final publication
-                        in AMT.
-                    </li>
-
-                </ul>
-
-                <div class="tags">
-
-                    <span class="tag">FORTRAN</span>
-                    <span class="tag">Free-Vortex Wake Model</span>
-                    <span class="tag">Rotor Aerodynamics</span>
-                    <span class="tag">UAVs</span>
-                    <span class="tag">Experimental Validation</span>
-                    <span class="tag">LaTeX</span>
-
-                </div>
-
-            </article>
+    </div>
 
 
-            <!-- NITK Undergraduate Research -->
+    <div class="sub-panel"
+         data-subpanel="research-uav">
 
-            <article class="card">
+        <div class="card">
 
-                <h3>Undergraduate Research Assistant</h3>
+            <h3>Rotor-induced flow fields around UAVs</h3>
 
-                <p class="meta">
-                    National Institute of Technology Karnataka ·
-                    February 2023 – July 2023 · Surathkal, India
-                </p>
+            <p class="meta">
+                Geophysical Flows Laboratory · IIT Madras
+            </p>
 
-                <p>
-                    Worked under the guidance of Dr N. Gnanasekaran
-                    on the numerical investigation of a transverse
-                    stepped metal-foam solar air heater. The study
-                    examined how variations in pore density (PPI)
-                    and porosity influence the heat-transfer
-                    performance of the system.
-                </p>
+            <p>
+                Investigated the flow disturbances generated by
+                rotating propellers and their implications for
+                atmospheric wind measurements using UAV platforms.
+            </p>
 
-                <ul>
+            <ul>
 
-                    <li>
-                        Performed computational fluid dynamics simulations
-                        using ANSYS Fluent.
-                    </li>
+                <li>
+                    Studied single-rotor, quad-rotor and
+                    hexa-rotor configurations.
+                </li>
 
-                    <li>
-                        Investigated thermo-hydraulic behaviour and
-                        heat-transfer enhancement across different
-                        metal-foam configurations.
-                    </li>
+                <li>
+                    Examined rotor-induced velocity distributions
+                    under hover and descent flight conditions.
+                </li>
 
-                    <li>
-                        Processed and interpreted simulation results,
-                        using OriginPro for analysis and visualisation.
-                    </li>
+                <li>
+                    Identified aerodynamic quiet zones for
+                    potential wind-sensor placement.
+                </li>
 
-                </ul>
+                <li>
+                    Compared numerical predictions with
+                    single-rotor experimental measurements.
+                </li>
 
-                <div class="tags">
+            </ul>
 
-                    <span class="tag">ANSYS Fluent</span>
-                    <span class="tag">Heat Transfer</span>
-                    <span class="tag">Metal Foam</span>
-                    <span class="tag">OriginPro</span>
-
-                </div>
-
-            </article>
+            <p>
+                This research formed the basis of my journal article
+                in Atmospheric Measurement Techniques.
+            </p>
 
         </div>
 
-    </section>
+    </div>
 
 
-    <!-- Engineering Projects -->
+    <div class="sub-panel"
+         data-subpanel="research-methods"
+         hidden>
 
-    <section class="section" id="projects">
+        <div class="card">
 
-        <div class="container">
+            <h3>Numerical modelling and post-processing</h3>
 
-            <div class="section-heading">
+            <p>
+                Worked with a Fortran-based free-vortex wake model
+                for evaluating rotor-induced flow fields.
+                The computational work involved analysing the
+                spatial distribution of induced velocity around
+                rotor systems and post-processing the numerical
+                results for physical interpretation.
+            </p>
 
-                <p class="eyebrow">Selected technical work</p>
+            <div class="tags">
 
-                <h2>Engineering projects</h2>
-
-            </div>
-
-
-            <!-- Heat Exchanger -->
-
-            <article class="card">
-
-                <h3>Optimisation of a Shell-and-Tube Heat Exchanger</h3>
-
-                <p class="meta">
-                    IEEE NITK · Project work
-                </p>
-
-                <p>
-                    Worked on the hydrodynamic modelling and
-                    thermo-hydraulic assessment of different
-                    shell-and-tube heat-exchanger configurations,
-                    examining their flow behaviour and thermal performance.
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">Thermal Engineering</span>
-                    <span class="tag">Heat Transfer</span>
-                    <span class="tag">Hydrodynamics</span>
-
-                </div>
-
-            </article>
-
-
-            <!-- Battery Cooling -->
-
-            <article class="card">
-
-                <h3>
-                    Swiss-Roll Liquid-Cooling Microchannel for
-                    EV Battery Thermal Management
-                </h3>
-
-                <p class="meta">
-                    IEEE NITK · Mentored project
-                </p>
-
-                <p>
-                    A project focused on liquid-cooling strategies
-                    for electric-vehicle battery modules under
-                    high-power operating conditions. The work
-                    examined Swiss-roll microchannel configurations
-                    to improve heat dissipation and temperature
-                    uniformity, with the broader aim of reducing
-                    battery overheating and mitigating thermal-runaway
-                    risk. Different flow configurations were considered
-                    under comparable coolant properties, inlet
-                    temperature and flow-rate conditions.
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">Battery Thermal Management</span>
-                    <span class="tag">Microchannels</span>
-                    <span class="tag">Heat Transfer</span>
-
-                </div>
-
-            </article>
-
-
-            <!-- Gear Analysis -->
-
-            <article class="card">
-
-                <h3>Structural Analysis and Material Selection of Gears</h3>
-
-                <p class="meta">
-                    IEEE NITK · Mentored project
-                </p>
-
-                <p>
-                    A comparative structural-analysis project involving
-                    meshing spur, helical and bevel gears. Static structural
-                    behaviour was assessed for candidate materials including
-                    cast iron, bronze, brass and aluminium alloys to inform
-                    material selection.
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">ANSYS Mechanical</span>
-                    <span class="tag">Finite-Element Analysis</span>
-                    <span class="tag">Material Selection</span>
-
-                </div>
-
-            </article>
-
-
-            <!-- ML and CFD -->
-
-            <article class="card">
-
-                <h3>
-                    Integration of Machine Learning Methods in CFD
-                    of Propeller Blades
-                </h3>
-
-                <p class="meta">
-                    IEEE NITK · Mentored project
-                </p>
-
-                <p>
-                    Explored data-driven methods for propeller design
-                    and optimisation. The project considered how
-                    machine-learning approaches could support
-                    design-space exploration, screen promising
-                    propeller configurations and reduce reliance
-                    on computationally expensive simulations and
-                    repeated testing across aviation, marine and
-                    UAV applications.
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">Machine Learning</span>
-                    <span class="tag">CFD</span>
-                    <span class="tag">Propeller Design</span>
-
-                </div>
-
-            </article>
-
-
-            <!-- NITKRacing -->
-
-            <article class="card">
-
-                <h3>Formula Student Vehicle Development</h3>
-
-                <p class="meta">
-                    NITKRacing · Team Member ·
-                    July 2022 – May 2024 · Mangaluru, India
-                </p>
-
-                <p>
-                    Contributed to the design, manufacturing and
-                    engineering development of a student-built
-                    Formula Student vehicle, with work spanning
-                    chassis manufacturing, vehicle components
-                    and structural assessment.
-                </p>
-
-                <ul>
-
-                    <li>
-                        Worked on manufacturing the vehicle chassis.
-                    </li>
-
-                    <li>
-                        Designed and optimised pedal-box pedals
-                        using Autodesk Fusion 360 and ANSYS
-                        Mechanical topology optimisation.
-                    </li>
-
-                    <li>
-                        Worked on MATLAB modelling of the car.
-                    </li>
-
-                    <li>
-                        Contributed to steering-system optimisation
-                        and performed finite-element analysis to
-                        assess the structural integrity of the
-                        steering column.
-                    </li>
-
-                </ul>
-
-                <div class="tags">
-
-                    <span class="tag">Vehicle Engineering</span>
-                    <span class="tag">Autodesk Fusion 360</span>
-                    <span class="tag">Topology Optimisation</span>
-                    <span class="tag">FEA</span>
-                    <span class="tag">MATLAB</span>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- Leadership -->
-
-    <section class="section" id="leadership">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <p class="eyebrow">Leadership and outreach</p>
-
-                <h2>Leadership & technical mentoring</h2>
-
-            </div>
-
-
-            <article class="card">
-
-                <h3>Executive Member</h3>
-
-                <p class="meta">
-                    IEEE NITK · November 2022 – May 2024 · NITK Surathkal
-                </p>
-
-                <p>
-                    Contributed to technical initiatives and project
-                    activities within IEEE NITK. The role included
-                    supporting project teams, mentoring technical
-                    projects and facilitating peer-to-peer learning
-                    through Knowledge Exchange Programme (KEP) sessions.
-                </p>
-
-                <h4>
-                    Knowledge Exchange Programme sessions conducted
-                </h4>
-
-                <ul>
-
-                    <li>
-                        Introduction to computer-aided design (CAD)
-                        using Onshape.
-                    </li>
-
-                    <li>
-                        Introduction to finite-element analysis (FEA)
-                        using ANSYS Mechanical.
-                    </li>
-
-                    <li>
-                        Introduction to MATLAB and Simulink.
-                    </li>
-
-                </ul>
-
-                <p>
-                    The project mentoring activities covered battery
-                    thermal management using Swiss-roll liquid-cooling
-                    microchannels, structural analysis and material
-                    selection for gears, and the integration of
-                    machine-learning methods into propeller-blade CFD.
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">Technical Leadership</span>
-                    <span class="tag">Project Mentoring</span>
-                    <span class="tag">Knowledge Exchange</span>
-                    <span class="tag">CAD</span>
-                    <span class="tag">FEA</span>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- Education -->
-
-    <section class="section" id="education">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <p class="eyebrow">Academic background</p>
-
-                <h2>Education</h2>
-
-            </div>
-
-
-            <div class="two-column">
-
-                <article class="card">
-
-                    <h3>National Institute of Technology Karnataka</h3>
-
-                    <p class="education-place">
-                        NITK Surathkal · India
-                    </p>
-
-                    <p>
-                        Bachelor's degree in Mechanical Engineering
-                    </p>
-
-                    <p class="meta">
-                        CGPA: 9.15 / 10
-                    </p>
-
-                    <p>
-                        Undergraduate training in mechanical engineering,
-                        complemented by research, technical projects,
-                        student-team activities and engineering
-                        leadership initiatives.
-                    </p>
-
-                </article>
-
-
-                <article class="card">
-
-                    <h3>Indian Institute of Technology Madras</h3>
-
-                    <p class="education-place">
-                        Chennai · India
-                    </p>
-
-                    <p>
-                        Academic exchange · Aerospace Engineering
-                    </p>
-
-                    <p>
-                        Completed the final-year academic exchange
-                        and research project in the Aerospace
-                        Engineering department. The work developed
-                        into the research carried out at the
-                        Geophysical Flows Laboratory.
-                    </p>
-
-                </article>
+                <span class="tag">FORTRAN</span>
+                <span class="tag">Free-Vortex Wake Modelling</span>
+                <span class="tag">Python</span>
+                <span class="tag">Numerical Post-processing</span>
+                <span class="tag">Flow Visualisation</span>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
 
 
-    <!-- Technical Skills -->
+    <div class="sub-panel"
+         data-subpanel="research-thermal"
+         hidden>
 
-    <section class="section" id="skills">
+        <div class="card">
 
-        <div class="container">
+            <h3>Thermal-fluid systems</h3>
 
-            <div class="section-heading">
+            <p>
+                Undergraduate research and mentored projects
+                involving heat-transfer enhancement, metal-foam
+                solar air heaters, shell-and-tube heat exchangers
+                and liquid cooling for electric-vehicle battery
+                thermal management.
+            </p>
 
-                <p class="eyebrow">Technical toolkit</p>
+            <div class="tags">
 
-                <h2>Skills & tools</h2>
-
-            </div>
-
-
-            <div class="two-column">
-
-                <article class="card">
-
-                    <h3>Programming & computation</h3>
-
-                    <div class="tags">
-
-                        <span class="tag">FORTRAN</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">MATLAB</span>
-                        <span class="tag">Simulink</span>
-                        <span class="tag">Linux</span>
-                        <span class="tag">Git</span>
-
-                    </div>
-
-                </article>
-
-
-                <article class="card">
-
-                    <h3>Simulation, design & analysis</h3>
-
-                    <div class="tags">
-
-                        <span class="tag">ANSYS Fluent</span>
-                        <span class="tag">ANSYS Mechanical</span>
-                        <span class="tag">Autodesk Fusion 360</span>
-                        <span class="tag">Onshape</span>
-                        <span class="tag">OriginPro</span>
-                        <span class="tag">LaTeX</span>
-
-                    </div>
-
-                </article>
+                <span class="tag">Heat Transfer</span>
+                <span class="tag">Thermo-hydraulics</span>
+                <span class="tag">CFD</span>
+                <span class="tag">Battery Cooling</span>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- Contact -->
+<!-- =========================================
+     PUBLICATIONS TAB
+========================================= -->
 
-    <section class="section" id="contact">
+<section class="tab-panel"
+         id="panel-publications"
+         data-panel="publications"
+         hidden>
 
-        <div class="container">
+    <p class="eyebrow">Research output</p>
 
-            <div class="section-heading">
+    <h2>Publications</h2>
 
-                <p class="eyebrow">Get in touch</p>
+    <p class="section-intro">
+        Peer-reviewed research and preprints.
+    </p>
 
-                <h2>Contact</h2>
+
+    <div class="sub-navigation" role="tablist">
+
+        <button class="sub-tab active"
+                data-subtab="pub-journal">
+            Journal article
+        </button>
+
+        <button class="sub-tab"
+                data-subtab="pub-preprint">
+            Preprint
+        </button>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="pub-journal">
+
+        <article class="card">
+
+            <h3 class="publication-title">
+                Aerodynamic evaluation of wind speed sensor placement
+                on UAVs for meteorological applications
+            </h3>
+
+            <p class="meta">
+                Ashish Pastay et al. · 2026
+            </p>
+
+            <span class="publication-status">
+                Accepted for final publication
+            </span>
+
+            <p>
+                <em>Atmospheric Measurement Techniques (AMT)</em>,
+                Copernicus Publications, on behalf of the
+                European Geosciences Union.
+            </p>
+
+            <p>
+                Investigates rotor-induced flow fields around
+                different UAV configurations using a free-vortex
+                wake model. The study examines hover and descent
+                conditions, identifies aerodynamic quiet-zones
+                suitable for wind-speed sensor placement and
+                validates the numerical model against single-rotor
+                experimental measurements.
+            </p>
+
+            <p class="meta">
+                Manuscript ID: egusphere-2026-977
+            </p>
+
+            <p>
+                The final typeset journal version and its DOI
+                can be linked here after publication.
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="pub-preprint"
+         hidden>
+
+        <article class="card">
+
+            <h3 class="publication-title">
+                Aerodynamic evaluation of wind speed sensor placement
+                on UAVs for meteorological applications
+            </h3>
+
+            <p class="meta">
+                Ashish Pastay et al. · EGUsphere · 2026
+            </p>
+
+            <span class="publication-status">
+                Preprint available
+            </span>
+
+            <p>
+                The preprint version of the research article
+                is available through EGUsphere, the EGU preprint
+                and discussion platform.
+            </p>
+
+            <a class="publication-link"
+               href="https://doi.org/10.5194/egusphere-2026-977"
+               target="_blank"
+               rel="noopener noreferrer">
+                View preprint and DOI →
+            </a>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     AWARDS AND ACHIEVEMENTS TAB
+========================================= -->
+
+<section class="tab-panel"
+         id="panel-awards"
+         data-panel="awards"
+         hidden>
+
+    <p class="eyebrow">Recognition and academic achievements</p>
+
+    <h2>Awards & Achievements</h2>
+
+    <p class="section-intro">
+        Academic distinctions, merit-based scholarships
+        and research opportunities received during my
+        undergraduate education and academic development.
+    </p>
+
+
+    <div class="sub-navigation" role="tablist">
+
+        <button class="sub-tab active"
+                data-subtab="awards-academic">
+            Academic distinctions
+        </button>
+
+        <button class="sub-tab"
+                data-subtab="awards-scholarships">
+            Scholarships
+        </button>
+
+        <button class="sub-tab"
+                data-subtab="awards-fellowships">
+            Research fellowships
+        </button>
+
+    </div>
+
+
+    <!-- Academic distinctions -->
+
+    <div class="sub-panel"
+         data-subpanel="awards-academic">
+
+        <article class="card award-card">
+
+            <span class="award-category">
+                Academic distinction
+            </span>
+
+            <h3 class="award-title">
+                4th Rank – Department of Mechanical Engineering
+            </h3>
+
+            <p class="award-description">
+                Secured 4th rank in the Department of Mechanical
+                Engineering in the B.Tech. programme at the
+                National Institute of Technology Karnataka
+                (NITK), Surathkal.
+            </p>
+
+            <p class="meta">
+                National Institute of Technology Karnataka
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <!-- Scholarships -->
+
+    <div class="sub-panel"
+         data-subpanel="awards-scholarships"
+         hidden>
+
+        <article class="card award-card">
+
+            <span class="award-category">
+                Merit-based scholarship
+            </span>
+
+            <h3 class="award-title">
+                Garrett Merit-cum-Means Scholarship
+            </h3>
+
+            <p class="award-description">
+                Recipient of the Garrett Merit-cum-Means
+                Scholarship in recognition of academic
+                performance and merit.
+            </p>
+
+            <p class="award-year">
+                2024 and 2025
+            </p>
+
+            <p class="meta">
+                National Institute of Technology Karnataka
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <!-- Research fellowships -->
+
+    <div class="sub-panel"
+         data-subpanel="awards-fellowships"
+         hidden>
+
+        <article class="card award-card">
+
+            <span class="award-category">
+                Research fellowship
+            </span>
+
+            <h3 class="award-title">
+                Summer Research Fellowship
+            </h3>
+
+            <p class="award-description">
+                Summer Research Fellowship at the Aerospace
+                Engineering Department, Indian Institute
+                of Technology Madras.
+            </p>
+
+            <p class="meta">
+                Indian Institute of Technology Madras
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     EXPERIENCE TAB
+========================================= -->
+
+<section class="tab-panel"
+         id="panel-experience"
+         data-panel="experience"
+         hidden>
+
+    <p class="eyebrow">Professional background</p>
+
+    <h2>Research Experience</h2>
+
+
+    <div class="sub-navigation" role="tablist">
+
+        <button class="sub-tab active"
+                data-subtab="exp-iitm">
+            IIT Madras
+        </button>
+
+        <button class="sub-tab"
+                data-subtab="exp-nitk">
+            NITK
+        </button>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="exp-iitm">
+
+        <article class="card">
+
+            <h3>Geophysical Flows Laboratory (GFL)</h3>
+
+            <p class="meta">
+                Indian Institute of Technology Madras ·
+                Research Intern, subsequently Project Associate
+            </p>
+
+            <p>
+                My work at GFL focused on computational and
+                experimental investigations of rotor-induced
+                flow fields around UAVs, motivated by the
+                challenges associated with atmospheric
+                wind measurements from rotorcraft.
+            </p>
+
+            <ul>
+
+                <li>
+                    <strong>Free-vortex wake modelling:</strong>
+                    Worked with a Fortran-based free-vortex wake
+                    model to investigate the induced velocity
+                    fields generated by single- and multi-rotor
+                    UAV configurations.
+                </li>
+
+                <li>
+                    <strong>Numerical post-processing:</strong>
+                    Analysed and visualised rotor-induced
+                    velocity distributions to study the spatial
+                    structure of the flow fields.
+                </li>
+
+                <li>
+                    <strong>Experimental validation:</strong>
+                    Worked on experimental velocity measurements
+                    and validation of the numerical predictions
+                    for a single-rotor configuration.
+                </li>
+
+                <li>
+                    <strong>Flight-condition assessment:</strong>
+                    Contributed to investigations across different
+                    rotor arrangements and flight conditions,
+                    including hover and descent scenarios.
+                </li>
+
+                <li>
+                    <strong>Research publication:</strong>
+                    Consolidated the computational and experimental
+                    findings into a LaTeX research manuscript,
+                    contributing to its submission and revision.
+                    The article was accepted for final publication
+                    in Atmospheric Measurement Techniques.
+                </li>
+
+            </ul>
+
+            <div class="tags">
+
+                <span class="tag">FORTRAN</span>
+                <span class="tag">Rotor Aerodynamics</span>
+                <span class="tag">UAVs</span>
+                <span class="tag">Experimental Validation</span>
+                <span class="tag">LaTeX</span>
 
             </div>
 
+        </article>
 
-            <div class="contact-panel">
-
-                <div>
-
-                    <h3>
-                        Research discussions and professional enquiries
-                    </h3>
-
-                    <p>
-                        For questions about my research, publications
-                        or engineering work, please get in touch.
-                    </p>
-
-                </div>
+    </div>
 
 
-                <div class="contact-links">
+    <div class="sub-panel"
+         data-subpanel="exp-nitk"
+         hidden>
 
-                    <a href="mailto:ashishpastay18@gmail.com">
-                        Email
-                    </a>
+        <article class="card">
 
-                    <a href="https://www.linkedin.com/in/ashish-pastay-235a56224/"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        LinkedIn
-                    </a>
+            <h3>Undergraduate Research Assistant</h3>
 
-                    <a href="https://github.com/ashishpastay18"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        GitHub
-                    </a>
+            <p class="meta">
+                National Institute of Technology Karnataka ·
+                February 2023 – July 2023
+            </p>
 
-                    <a href="https://doi.org/10.5194/egusphere-2026-977"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        EGUsphere preprint
-                    </a>
+            <p>
+                Worked under the guidance of Dr N. Gnanasekaran
+                on the numerical investigation of a transverse
+                stepped metal-foam solar air heater, examining
+                the influence of pore density (PPI) and porosity
+                on heat-transfer enhancement.
+            </p>
 
-                </div>
+            <ul>
+
+                <li>
+                    Conducted computational fluid dynamics
+                    simulations using ANSYS Fluent.
+                </li>
+
+                <li>
+                    Investigated thermo-hydraulic performance
+                    across different metal-foam configurations.
+                </li>
+
+                <li>
+                    Processed and interpreted results using
+                    OriginPro.
+                </li>
+
+            </ul>
+
+            <div class="tags">
+
+                <span class="tag">ANSYS Fluent</span>
+                <span class="tag">Heat Transfer</span>
+                <span class="tag">Metal Foam</span>
+                <span class="tag">OriginPro</span>
 
             </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PROJECTS TAB
+========================================= -->
+
+<section class="tab-panel"
+         id="panel-projects"
+         data-panel="projects"
+         hidden>
+
+    <p class="eyebrow">Selected engineering work</p>
+
+    <h2>Projects</h2>
+
+
+    <div class="sub-navigation" role="tablist">
+
+        <button class="sub-tab active"
+                data-subtab="proj-heat">
+            Heat exchanger
+        </button>
+
+        <button class="sub-tab"
+                data-subtab="proj-battery">
+            Battery cooling
+        </button>
+
+        <button class="sub-tab"
+                data-subtab="proj-gear">
+            Gear analysis
+        </button>
+
+        <button class="sub-tab"
+                data-subtab="proj-ml">
+            ML + CFD
+        </button>
+
+        <button class="sub-tab"
+                data-subtab="proj-racing">
+            NITKRacing
+        </button>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="proj-heat">
+
+        <article class="card">
+
+            <h3>Optimisation of Shell-and-Tube Heat Exchangers</h3>
+
+            <p class="meta">
+                IEEE NITK · Project
+            </p>
+
+            <p>
+                Worked on hydrodynamic modelling and investigation
+                of the thermo-hydraulic performance of different
+                shell-and-tube heat exchanger configurations.
+                The work involved examining flow behaviour and
+                comparing thermal performance across configurations.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Thermal Engineering</span>
+                <span class="tag">Heat Transfer</span>
+                <span class="tag">Hydrodynamics</span>
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="proj-battery"
+         hidden>
+
+        <article class="card">
+
+            <h3>
+                Swiss-Roll Liquid-Cooling Microchannel for
+                EV Battery Thermal Management
+            </h3>
+
+            <p class="meta">
+                IEEE NITK · Mentored project
+            </p>
+
+            <p>
+                Investigated Swiss-roll liquid-cooling microchannel
+                designs for electric-vehicle battery modules under
+                high-power operating conditions, such as vehicle
+                acceleration on inclined surfaces.
+            </p>
+
+            <p>
+                Different microchannel flow configurations were
+                considered under comparable coolant properties,
+                inlet temperature and flow-rate conditions to
+                assess heat dissipation and temperature uniformity,
+                with the broader objective of reducing overheating
+                and mitigating thermal-runaway risks.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Battery Thermal Management</span>
+                <span class="tag">Microchannels</span>
+                <span class="tag">Heat Transfer</span>
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="proj-gear"
+         hidden>
+
+        <article class="card">
+
+            <h3>Structural Analysis and Material Selection of Gears</h3>
+
+            <p class="meta">
+                IEEE NITK · Mentored project
+            </p>
+
+            <p>
+                Performed static structural analysis of meshing
+                spur, helical and bevel gears. Compared the
+                mechanical behaviour of cast iron, bronze,
+                brass and aluminium alloys to evaluate their
+                suitability for gear applications.
+            </p>
+
+            <div class="tags">
+                <span class="tag">ANSYS Mechanical</span>
+                <span class="tag">Finite-Element Analysis</span>
+                <span class="tag">Material Selection</span>
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="proj-ml"
+         hidden>
+
+        <article class="card">
+
+            <h3>
+                Integration of Machine Learning Methods in CFD
+                of Propeller Blades
+            </h3>
+
+            <p class="meta">
+                IEEE NITK · Mentored project
+            </p>
+
+            <p>
+                Explored the application of machine-learning
+                techniques to propeller design and optimisation.
+                The approach considered data-driven design-space
+                exploration, identification of promising
+                configurations and reducing dependence on
+                computationally expensive simulations and
+                iterative testing across aviation, marine
+                and UAV applications.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">CFD</span>
+                <span class="tag">Propeller Aerodynamics</span>
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="proj-racing"
+         hidden>
+
+        <article class="card">
+
+            <h3>Formula Student Vehicle Development</h3>
+
+            <p class="meta">
+                NITKRacing · Team Member ·
+                July 2022 – May 2024 · Mangaluru, India
+            </p>
+
+            <p>
+                Contributed to the design, manufacturing and
+                engineering development of a Formula Student
+                vehicle, with involvement in chassis
+                manufacturing, component design and
+                structural assessment.
+            </p>
+
+            <ul>
+
+                <li>
+                    Worked on manufacturing the chassis
+                    of the vehicle.
+                </li>
+
+                <li>
+                    Designed and optimised pedal-box pedals
+                    using Autodesk Fusion 360 and ANSYS
+                    Mechanical topology optimisation.
+                </li>
+
+                <li>
+                    Worked on MATLAB modelling of the car.
+                </li>
+
+                <li>
+                    Contributed to steering-system optimisation
+                    and performed FEA to assess the structural
+                    integrity of the steering column.
+                </li>
+
+            </ul>
+
+            <div class="tags">
+                <span class="tag">Vehicle Engineering</span>
+                <span class="tag">Autodesk Fusion 360</span>
+                <span class="tag">Topology Optimisation</span>
+                <span class="tag">FEA</span>
+                <span class="tag">MATLAB</span>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     LEADERSHIP TAB
+========================================= -->
+
+<section class="tab-panel"
+         id="panel-leadership"
+         data-panel="leadership"
+         hidden>
+
+    <p class="eyebrow">Leadership and outreach</p>
+
+    <h2>Leadership & Mentoring</h2>
+
+
+    <div class="sub-navigation" role="tablist">
+
+        <button class="sub-tab active"
+                data-subtab="lead-ieee">
+            IEEE NITK
+        </button>
+
+        <button class="sub-tab"
+                data-subtab="lead-kep">
+            KEP sessions
+        </button>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="lead-ieee">
+
+        <article class="card">
+
+            <h3>Executive Member</h3>
+
+            <p class="meta">
+                IEEE NITK · November 2022 – May 2024
+            </p>
+
+            <p>
+                Contributed to technical initiatives and project
+                activities within IEEE NITK, including project
+                mentoring, coordination of technical work and
+                peer-to-peer knowledge exchange.
+            </p>
+
+            <h4>Mentored technical projects</h4>
+
+            <ul>
+
+                <li>
+                    Swiss-roll liquid-cooling microchannel
+                    for electric-vehicle battery thermal management.
+                </li>
+
+                <li>
+                    Structural analysis and material selection
+                    of spur, helical and bevel gears.
+                </li>
+
+                <li>
+                    Integration of machine-learning techniques
+                    into CFD-based propeller design.
+                </li>
+
+            </ul>
+
+        </article>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="lead-kep"
+         hidden>
+
+        <article class="card">
+
+            <h3>Knowledge Exchange Programme</h3>
+
+            <p>
+                Conducted introductory technical sessions
+                to facilitate peer learning and introduce
+                engineering design and simulation tools.
+            </p>
+
+            <ul>
+
+                <li>
+                    Introduction to CAD using Onshape,
+                    a cloud-based CAD platform.
+                </li>
+
+                <li>
+                    Introduction to finite-element analysis
+                    using ANSYS Mechanical.
+                </li>
+
+                <li>
+                    Introduction to MATLAB and Simulink.
+                </li>
+
+            </ul>
+
+            <div class="tags">
+                <span class="tag">Technical Communication</span>
+                <span class="tag">CAD</span>
+                <span class="tag">FEA</span>
+                <span class="tag">MATLAB</span>
+                <span class="tag">Mentoring</span>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     EDUCATION TAB
+========================================= -->
+
+<section class="tab-panel"
+         id="panel-education"
+         data-panel="education"
+         hidden>
+
+    <p class="eyebrow">Academic background</p>
+
+    <h2>Education</h2>
+
+
+    <div class="sub-navigation" role="tablist">
+
+        <button class="sub-tab active"
+                data-subtab="edu-nitk">
+            NITK Surathkal
+        </button>
+
+        <button class="sub-tab"
+                data-subtab="edu-iitm">
+            IIT Madras
+        </button>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="edu-nitk">
+
+        <article class="card">
+
+            <h3>National Institute of Technology Karnataka</h3>
+
+            <p class="education-place">
+                Surathkal, Karnataka, India
+            </p>
+
+            <p>
+                B.Tech. in Mechanical Engineering
+            </p>
+
+            <p class="meta">
+                CGPA: 9.15 / 10
+            </p>
+
+            <p>
+                Undergraduate education in mechanical engineering,
+                alongside research activities, engineering projects,
+                student-team participation and technical leadership
+                through IEEE NITK.
+            </p>
+
+            <p>
+                Secured 4th rank in the Department of
+                Mechanical Engineering.
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="edu-iitm"
+         hidden>
+
+        <article class="card">
+
+            <h3>Indian Institute of Technology Madras</h3>
+
+            <p class="education-place">
+                Chennai, Tamil Nadu, India
+            </p>
+
+            <p>
+                Academic exchange programme · Aerospace Engineering
+            </p>
+
+            <p>
+                Undertook an academic exchange in the Aerospace
+                Engineering department. The final-year research
+                project and subsequent research work contributed
+                to my experience in computational fluid mechanics
+                and rotor aerodynamics.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SKILLS TAB
+========================================= -->
+
+<section class="tab-panel"
+         id="panel-skills"
+         data-panel="skills"
+         hidden>
+
+    <p class="eyebrow">Technical toolkit</p>
+
+    <h2>Skills & Tools</h2>
+
+
+    <div class="sub-navigation" role="tablist">
+
+        <button class="sub-tab active"
+                data-subtab="skills-programming">
+            Programming
+        </button>
+
+        <button class="sub-tab"
+                data-subtab="skills-simulation">
+            Simulation and design
+        </button>
+
+        <button class="sub-tab"
+                data-subtab="skills-research">
+            Research workflow
+        </button>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="skills-programming">
+
+        <article class="card">
+
+            <h3>Programming and computation</h3>
+
+            <div class="tags">
+                <span class="tag">FORTRAN</span>
+                <span class="tag">Python</span>
+                <span class="tag">MATLAB</span>
+                <span class="tag">Simulink</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Git</span>
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="skills-simulation"
+         hidden>
+
+        <article class="card">
+
+            <h3>Simulation, design and analysis</h3>
+
+            <div class="tags">
+                <span class="tag">ANSYS Fluent</span>
+                <span class="tag">ANSYS Mechanical</span>
+                <span class="tag">Autodesk Fusion 360</span>
+                <span class="tag">Onshape</span>
+                <span class="tag">OriginPro</span>
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <div class="sub-panel"
+         data-subpanel="skills-research"
+         hidden>
+
+        <article class="card">
+
+            <h3>Research and technical communication</h3>
+
+            <div class="tags">
+                <span class="tag">LaTeX</span>
+                <span class="tag">Scientific Writing</span>
+                <span class="tag">Numerical Post-processing</span>
+                <span class="tag">Data Visualisation</span>
+                <span class="tag">Experimental Validation</span>
+                <span class="tag">Technical Mentoring</span>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACT TAB
+========================================= -->
+
+<section class="tab-panel"
+         id="panel-contact"
+         data-panel="contact"
+         hidden>
+
+    <p class="eyebrow">Get in touch</p>
+
+    <h2>Contact</h2>
+
+    <p class="section-intro">
+        For research discussions, collaboration,
+        academic enquiries and professional opportunities.
+    </p>
+
+
+    <div class="contact-box">
+
+        <h3>Ashish Pastay</h3>
+
+        <p>
+            Mechanical Engineer | Fluid Mechanics |
+            Aerodynamics | Computational Fluid Dynamics
+        </p>
+
+        <p>
+            Email:
+            <a href="mailto:ashishpastay18@gmail.com">
+                ashishpastay18@gmail.com
+            </a>
+        </p>
+
+        <div class="contact-links">
+
+            <a href="https://www.linkedin.com/in/ashish-pastay-235a56224/"
+               target="_blank"
+               rel="noopener noreferrer">
+                LinkedIn →
+            </a>
+
+            <a href="https://github.com/ashishpastay18"
+               target="_blank"
+               rel="noopener noreferrer">
+                GitHub →
+            </a>
+
+            <a href="https://doi.org/10.5194/egusphere-2026-977"
+               target="_blank"
+               rel="noopener noreferrer">
+                EGUsphere →
+            </a>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
+
 
 </main>
 
 
-<!-- Footer -->
+<!-- =========================================
+     FOOTER
+========================================= -->
 
 <footer>
 
-    <div class="container">
-        © 2026 Ashish Pastay · Built with HTML and CSS · Hosted on GitHub Pages
-    </div>
+    © 2026 Ashish Pastay |
+    Academic and Research Portfolio |
+    Hosted using GitHub Pages
 
 </footer>
 
+
+<!-- =========================================
+     JAVASCRIPT: TAB FUNCTIONALITY
+========================================= -->
+
+<script>
+
+/* Main navigation elements */
+
+const mainTabs = document.querySelectorAll("[data-tab]");
+
+const mainPanels = document.querySelectorAll("[data-panel]");
+
+
+/* Activate a sub-tab */
+
+function activateSubTab(parentPanel, subName) {
+
+    const subTabs =
+        parentPanel.querySelectorAll("[data-subtab]");
+
+    const subPanels =
+        parentPanel.querySelectorAll("[data-subpanel]");
+
+
+    subTabs.forEach(button => {
+
+        const active = button.dataset.subtab === subName;
+
+        button.classList.toggle("active", active);
+
+        button.setAttribute(
+            "aria-selected",
+            String(active)
+        );
+
+    });
+
+
+    subPanels.forEach(panel => {
+
+        panel.hidden = panel.dataset.subpanel !== subName;
+
+    });
+
+}
+
+
+/* Activate a main navigation tab */
+
+function activateMainTab(
+    tabName,
+    updateHistory = true,
+    preferredSub = null
+) {
+
+    const selectedPanel =
+        document.querySelector(
+            `[data-panel="${tabName}"]`
+        );
+
+    if (!selectedPanel) return;
+
+
+    /* Update main navigation */
+
+    mainTabs.forEach(button => {
+
+        const active = button.dataset.tab === tabName;
+
+        button.classList.toggle("active", active);
+
+        button.setAttribute(
+            "aria-selected",
+            String(active)
+        );
+
+    });
+
+
+    /* Show the selected main panel */
+
+    mainPanels.forEach(panel => {
+
+        panel.hidden = panel.dataset.panel !== tabName;
+
+    });
+
+
+    /* Determine selected sub-tab */
+
+    const firstSubTab =
+        selectedPanel.querySelector("[data-subtab]");
+
+    let selectedSub = "";
+
+    if (firstSubTab) {
+
+        selectedSub = preferredSub &&
+            selectedPanel.querySelector(
+                `[data-subtab="${preferredSub}"]`
+            )
+            ? preferredSub
+            : firstSubTab.dataset.subtab;
+
+        activateSubTab(selectedPanel, selectedSub);
+
+    }
+
+
+    /* Update URL */
+
+    if (updateHistory) {
+
+        const newHash = selectedSub
+            ? `#${tabName}/${selectedSub}`
+            : `#${tabName}`;
+
+        history.pushState(
+            {
+                main: tabName,
+                sub: selectedSub
+            },
+            "",
+            newHash
+        );
+
+    }
+
+}
+
+
+/* Main navigation click events */
+
+mainTabs.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        activateMainTab(button.dataset.tab);
+
+    });
+
+});
+
+
+/* Sub-navigation click events */
+
+document.querySelectorAll("[data-subtab]").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const parentPanel =
+            button.closest("[data-panel]");
+
+        if (!parentPanel) return;
+
+        const subName = button.dataset.subtab;
+
+        activateSubTab(parentPanel, subName);
+
+        const mainName = parentPanel.dataset.panel;
+
+        history.pushState(
+            {
+                main: mainName,
+                sub: subName
+            },
+            "",
+            `#${mainName}/${subName}`
+        );
+
+    });
+
+});
+
+
+/* Brand logo returns to About */
+
+document.querySelector("[data-brand]").addEventListener(
+    "click",
+    event => {
+
+        event.preventDefault();
+
+        activateMainTab("about");
+
+    }
+);
+
+
+/* Internal links to other main tabs */
+
+document.querySelectorAll("[data-open-tab]").forEach(link => {
+
+    link.addEventListener("click", event => {
+
+        event.preventDefault();
+
+        activateMainTab(link.dataset.openTab);
+
+    });
+
+});
+
+
+/* Restore selected tab from URL */
+
+function restoreFromHash() {
+
+    const hash =
+        window.location.hash.replace("#", "");
+
+    if (!hash) {
+
+        activateMainTab("about", false);
+
+        return;
+
+    }
+
+    const parts = hash.split("/");
+
+    const mainName = parts[0];
+
+    const subName = parts[1] || null;
+
+    const selectedPanel =
+        document.querySelector(
+            `[data-panel="${mainName}"]`
+        );
+
+    if (!selectedPanel) {
+
+        activateMainTab("about", false);
+
+        return;
+
+    }
+
+    activateMainTab(
+        mainName,
+        false,
+        subName
+    );
+
+}
+
+
+/* Browser back and forward navigation */
+
+window.addEventListener("popstate", restoreFromHash);
+
+window.addEventListener("hashchange", restoreFromHash);
+
+
+/* Initialise website */
+
+restoreFromHash();
+
+</script>
 
 </body>
 </html>
